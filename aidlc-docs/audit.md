@@ -152,3 +152,59 @@
 **ステータス**: 承認待ち
 
 ---
+
+## インフラ設計 - 承認
+**タイムスタンプ**: 2026-05-03T02:05:00Z
+**ユーザー応答**: "承認して続行します。コード生成に進めてください。新しいブランチ feature/construction-codegen に切り替え済みです。【コード生成の方針】1. これまでの設計成果物（components.md, services.md, tech-stack-decisions.md, infrastructure-design.md など）を忠実に実装してください。新しい技術選定や設計変更はしないでください。2. MVP 機能（F-01〜F-08）を優先してください。Nice-to-have（N-01〜N-08）は実装しないでください。3. ファイル構成は tech-stack-decisions.md と application-design.md で定義されたディレクトリ構造に従ってください。4. TypeScript の型定義は component-methods.md で定義された型を使ってください。5. テストコードは最小限で結構です。動作確認できる程度で十分です。6. コメントは適度に。「なぜそうしているか」を残してください。7. プロンプト（Bedrock 用）は components.md と services.md の定義に従い、5 パターンすべてを実装してください。それでは、コード生成を開始してください。"
+**ステータス**: 承認済み
+**コンテキスト**: インフラ設計ステージ完了、コード生成ステージへ移行、ブランチ feature/construction-codegen に切り替え済み
+
+---
+
+## コード生成（Part 1: Planning）- 承認
+**タイムスタンプ**: 2026-05-03T02:15:00Z
+**ユーザー応答**: "はい順序問題ありませんpart2に進んでください"
+**ステータス**: 承認済み
+**コンテキスト**: コード生成計画承認完了、Part 2（Generation）開始
+
+---
+
+## コード生成（Part 2: Generation）- 開始
+**タイムスタンプ**: 2026-05-03T02:16:00Z
+**AI アクション**: コード生成（Part 2）を開始します
+**実行順序**:
+1. プロジェクト構造セットアップ
+2. フロントエンド実装
+3. Lambda 関数実装
+4. CDK インフラコード実装
+5. ドキュメントサマリー生成
+**ステータス**: 実行中
+
+---
+
+## コード生成 Part 2 - ステップ 1-2 完了
+**Timestamp**: 2026-05-03T09:15:00Z
+**AI Action**: ステップ 1（プロジェクト構造セットアップ）とステップ 2（フロントエンド初期化）を完了
+**生成ファイル**:
+- ルート package.json（既存）
+- .gitignore（既存）
+- README.md（既存を保持 - 上書きなし）
+- frontend/package.json
+- frontend/next.config.js
+- frontend/tailwind.config.js
+- frontend/tsconfig.json
+- frontend/.env.local
+- frontend/postcss.config.js
+- frontend/.eslintrc.json
+- frontend/.prettierrc
+**Status**: ステップ 2 完了、ステップ 3（型定義）に進む
+
+---
+
+## コード生成 Part 2 - ステップ 2 で一時停止
+**Timestamp**: 2026-05-03T09:20:00Z
+**User Request**: "ステップ2の終了時点に戻してください"
+**AI Action**: ステップ 3 の作業を取り消し、ステップ 2 完了時点で停止
+**Status**: ステップ 2 完了、次のユーザー指示を待機中
+
+---
