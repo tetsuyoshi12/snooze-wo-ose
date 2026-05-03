@@ -132,9 +132,12 @@
 
 #### Amazon Bedrock
 - **開発時モデル**: Amazon Nova Lite
+  - モデル ID: `amazon.nova-lite-v1:0`（オンデマンド対応、prefix 不要）
   - 理由: 低コスト、開発・テスト用
-- **本番デモ時モデル**: Claude Haiku
+- **本番デモ時モデル**: Claude Haiku 4.5
+  - モデル ID: `us.anthropic.claude-haiku-4-5-20251001-v1:0`（推論プロファイル経由、`us.` prefix 必須）
   - 理由: バランス型、品質とコストの両立
+  - **重要**: Claude 4.5 系モデルは推論プロファイル経由でのみ呼び出し可能
 - **設定**:
   - `max_tokens`: 200
   - `temperature`: 0.7（創造性とコントロールのバランス）

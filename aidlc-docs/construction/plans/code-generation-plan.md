@@ -122,65 +122,68 @@ snooze-wo-ose/                    # ワークスペースルート
 **ステップ 2 完了 - ここで一時停止**
 
 ### ステップ 3: フロントエンド - 型定義
-- [ ] frontend/src/types/index.ts 作成（component-methods.md の型定義を使用）
+- [x] frontend/src/types/index.ts 作成（component-methods.md の型定義を使用）
 
 ### ステップ 4: フロントエンド - 定数
-- [ ] frontend/src/constants/fallback-messages.ts 作成
+- [x] frontend/src/constants/fallback-messages.ts 作成
 
 ### ステップ 5: フロントエンド - ユーティリティ・サービス
-- [ ] frontend/src/lib/error-handler.ts 作成
-- [ ] frontend/src/lib/sync-manager.ts 作成
-- [ ] frontend/src/lib/api-client.ts 作成
-- [ ] frontend/src/lib/alarm-manager.ts 作成
+- [x] frontend/src/lib/error-handler.ts 作成
+- [x] frontend/src/lib/sync-manager.ts 作成
+- [x] frontend/src/lib/api-client.ts 作成
+- [x] frontend/src/lib/alarm-manager.ts 作成
 
 ### ステップ 6: フロントエンド - Context
-- [ ] frontend/src/contexts/AlarmContext.tsx 作成
-- [ ] frontend/src/contexts/RecordContext.tsx 作成
-- [ ] frontend/src/contexts/DemoContext.tsx 作成
+- [x] frontend/src/contexts/AlarmContext.tsx 作成
+- [x] frontend/src/contexts/RecordContext.tsx 作成
+- [x] frontend/src/contexts/DemoContext.tsx 作成
 
 ### ステップ 7: フロントエンド - 共通コンポーネント
-- [ ] frontend/src/components/common/Button.tsx 作成
-- [ ] frontend/src/components/common/ProgressBar.tsx 作成
-- [ ] frontend/src/components/common/Modal.tsx 作成
-- [ ] frontend/src/components/ErrorBoundary.tsx 作成
+- [x] frontend/src/components/common/Button.tsx 作成
+- [x] frontend/src/components/common/ProgressBar.tsx 作成
+- [x] frontend/src/components/common/Modal.tsx 作成
+- [x] frontend/src/components/ErrorBoundary.tsx 作成
 
 ### ステップ 8: フロントエンド - モーダルコンポーネント
-- [ ] frontend/src/components/modals/CertificateModal.tsx 作成
+- [x] frontend/src/components/modals/CertificateModal.tsx 作成
 
 ### ステップ 9: フロントエンド - ページコンポーネント
-- [ ] frontend/src/app/layout.tsx 作成（AppLayout）
-- [ ] frontend/src/app/page.tsx 作成（AlarmSettingPage）
-- [ ] frontend/src/app/alarm/page.tsx 作成（AlarmScreen）
-- [ ] frontend/src/app/dashboard/page.tsx 作成（RecordDashboard）
-- [ ] frontend/src/app/demo/page.tsx 作成（DemoScenario）
+- [x] frontend/src/app/layout.tsx 作成（AppLayout）
+- [x] frontend/src/app/page.tsx 作成（AlarmSettingPage）
+- [x] frontend/src/app/alarm/page.tsx 作成（AlarmScreen）
+- [x] frontend/src/app/dashboard/page.tsx 作成（RecordDashboard）
+- [x] frontend/src/app/demo/page.tsx 作成（DemoScenario）
 
 ### ステップ 10: フロントエンド - グローバルスタイル
-- [ ] frontend/src/app/globals.css 作成（Tailwind CSS + 墨絵風カスタムスタイル）
+- [x] frontend/src/app/globals.css 作成（Tailwind CSS + 墨絵風カスタムスタイル）
+
+**ステップ 3-10 完了 - フロントエンド実装完了**
 
 ### ステップ 11: Lambda 関数 - messageGenerator
-- [ ] lambda/message-generator/index.ts 作成（5 パターンのプロンプト実装）
-- [ ] lambda/message-generator/package.json 作成
-- [ ] lambda/message-generator/tsconfig.json 作成
+- [x] lambda/message-generator/index.ts 作成（5 パターンのプロンプト実装）
+- [x] lambda/message-generator/package.json 作成
+- [x] lambda/message-generator/tsconfig.json 作成
 
 ### ステップ 12: Lambda 関数 - recordManager
-- [ ] lambda/record-manager/index.ts 作成
-- [ ] lambda/record-manager/package.json 作成
-- [ ] lambda/record-manager/tsconfig.json 作成
+- [x] lambda/record-manager/index.ts 作成
+- [x] lambda/record-manager/package.json 作成
+- [x] lambda/record-manager/tsconfig.json 作成
 
 ### ステップ 13: CDK インフラ - プロジェクト初期化
-- [ ] cdk/package.json 作成
-- [ ] cdk/cdk.json 作成
-- [ ] cdk/tsconfig.json 作成
+- [x] cdk/package.json 作成
+- [x] cdk/cdk.json 作成
+- [x] cdk/tsconfig.json 作成
+- [x] cdk/bin/snooze-wo-ose.ts 作成（エントリーポイント）
 
 ### ステップ 14: CDK インフラ - スタック定義
-- [ ] cdk/lib/snooze-wo-ose-stack.ts 作成
-- [ ] cdk/bin/snooze-wo-ose.ts 作成
+- [x] cdk/lib/snooze-wo-ose-stack.ts 作成
+- [x] cdk/bin/snooze-wo-ose.ts 作成
 
 ### ステップ 15: ドキュメント生成
-- [ ] aidlc-docs/construction/code/frontend-summary.md 作成
-- [ ] aidlc-docs/construction/code/lambda-summary.md 作成
-- [ ] aidlc-docs/construction/code/cdk-summary.md 作成
-- [ ] aidlc-docs/construction/code/deployment-guide.md 作成
+- [x] aidlc-docs/construction/code/frontend-summary.md 作成
+- [x] aidlc-docs/construction/code/lambda-summary.md 作成
+- [x] aidlc-docs/construction/code/cdk-summary.md 作成
+- [x] aidlc-docs/construction/code/deployment-guide.md 作成
 
 ---
 
@@ -200,6 +203,11 @@ snooze-wo-ose/                    # ワークスペースルート
 | F-08 | デモ用ライブモード | frontend/src/app/demo/page.tsx, DemoContext |
 
 ### Bedrock プロンプト 5 パターン
+
+**重要**: Claude 4.5 系モデルは推論プロファイル経由でのみ呼び出し可能です。モデル ID には `us.` プレフィックスが必須です。
+
+- **Claude Haiku 4.5**: `us.anthropic.claude-haiku-4-5-20251001-v1:0`（推論プロファイル経由）
+- **Nova Lite**: `amazon.nova-lite-v1:0`（オンデマンド対応、prefix 不要）
 
 ```typescript
 // lambda/message-generator/index.ts で実装
