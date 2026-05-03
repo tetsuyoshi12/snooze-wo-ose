@@ -1,0 +1,19 @@
+{
+  "name": "message-generator",
+  "version": "1.0.0",
+  "description": "Lambda function for generating AI messages using Bedrock",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}

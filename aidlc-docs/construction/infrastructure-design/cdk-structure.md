@@ -92,7 +92,9 @@ export class SnoozeWoOseStack extends cdk.Stack {
       memorySize: 256,
       timeout: cdk.Duration.seconds(30),
       environment: {
-        BEDROCK_MODEL_ID: 'anthropic.claude-haiku-20240307-v1:0',
+        // 開発時: Nova Lite（オンデマンド対応、prefix 不要）
+        // 本番デモ時: Claude Haiku 4.5（推論プロファイル経由、us. prefix 必須）
+        BEDROCK_MODEL_ID: 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
         BEDROCK_REGION: 'us-east-1',
         DYNAMODB_TABLE_NAME: snoozeRecordsTable.tableName,
       },
@@ -100,11 +102,15 @@ export class SnoozeWoOseStack extends cdk.Stack {
     });
 
     // Bedrock アクセス権限を付与
+    // Claude 4.5 系は推論プロファイル経由でのみ呼び出し可能
     messageGeneratorFunction.addToRolePolicy(new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,
       actions: ['bedrock:InvokeModel'],
       resources: [
-        'arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-haiku-20240307-v1:0'
+        // 推論プロファイル ARN（us. prefix 付きモデル用）
+        'arn:aws:bedrock:us-east-1::foundation-model/us.anthropic.claude-haiku-4-5-20251001-v1:0',
+        // Nova Lite（オンデマンド対応、開発時用）
+        'arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0'
       ],
     }));
 
@@ -117,8 +123,10 @@ export class SnoozeWoOseStack extends cdk.Stack {
       memorySize: 256,
       timeout: cdk.Duration.seconds(30),
       environment: {
-        BEDROCK_MODEL_ID: 'anthropic.claude-haiku-20240307-v1:0',
-        BEDROCK_REGION: 'us-east-1',
+        // recordManager は Bedrock を使用しないため、この環境変数は不要
+        // （将来的な拡張用に残す場合はコメントアウト）
+        // BEDROCK_MODEL_ID: 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
+        // BEDROCK_REGION: 'us-east-1',
         DYNAMODB_TABLE_NAME: snoozeRecordsTable.tableName,
       },
       logRetention: logs.RetentionDays.ONE_WEEK,
@@ -334,7 +342,9 @@ export async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayPr
 
 async function generateMessageFromBedrock(pattern: string): Promise<string> {
   const prompt = buildPrompt(pattern);
-  const modelId = process.env.BEDROCK_MODEL_ID || 'anthropic.claude-haiku-20240307-v1:0';
+  // デフォルトは Claude Haiku 4.5（推論プロファイル経由、us. prefix 必須）
+  // 開発時は amazon.nova-lite-v1:0 に変更可能（オンデマンド対応、prefix 不要）
+  const modelId = process.env.BEDROCK_MODEL_ID || 'us.anthropic.claude-haiku-4-5-20251001-v1:0';
 
   const command = new InvokeModelCommand({
     modelId,

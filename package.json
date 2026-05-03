@@ -1,0 +1,31 @@
+{
+  "name": "snooze-wo-ose",
+  "version": "1.0.0",
+  "description": "スヌーズを押せ - 朝起きられない人を生産するサービス",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "lambda/message-generator",
+    "lambda/record-manager",
+    "cdk"
+  ],
+  "scripts": {
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "lambda:build": "npm run lambda:build:message && npm run lambda:build:record",
+    "lambda:build:message": "cd lambda/message-generator && npm run build",
+    "lambda:build:record": "cd lambda/record-manager && npm run build",
+    "cdk:synth": "cd cdk && npm run cdk synth",
+    "cdk:deploy": "cd cdk && npm run cdk deploy",
+    "install:all": "npm install && cd frontend && npm install && cd ../lambda/message-generator && npm install && cd ../record-manager && npm install && cd ../../cdk && npm install"
+  },
+  "keywords": [
+    "alarm",
+    "snooze",
+    "aws",
+    "bedrock",
+    "hackathon"
+  ],
+  "author": "AI-DLC",
+  "license": "MIT"
+}

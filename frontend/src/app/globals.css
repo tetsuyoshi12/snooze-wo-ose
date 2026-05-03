@@ -1,0 +1,122 @@
+/**
+ * グローバルスタイル
+ * Tailwind CSS + 墨絵風カスタムスタイル
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 和紙風背景テクスチャ */
+@layer base {
+  body {
+    @apply bg-paper-light;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e8e4d8' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* 墨絵風のスクロールバー */
+@layer utilities {
+  .scrollbar-ink::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-ink::-webkit-scrollbar-track {
+    @apply bg-paper-dark;
+  }
+
+  .scrollbar-ink::-webkit-scrollbar-thumb {
+    @apply bg-ink-600 rounded;
+  }
+
+  .scrollbar-ink::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-700;
+  }
+}
+
+/* 和風のフォーカススタイル */
+@layer components {
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply outline-none ring-2 ring-ink-700 ring-opacity-50;
+  }
+}
+
+/* アニメーション */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 墨絵風のシャドウ */
+@layer utilities {
+  .shadow-ink {
+    box-shadow: 0 4px 6px -1px rgba(33, 33, 33, 0.1),
+      0 2px 4px -1px rgba(33, 33, 33, 0.06);
+  }
+
+  .shadow-ink-lg {
+    box-shadow: 0 10px 15px -3px rgba(33, 33, 33, 0.1),
+      0 4px 6px -2px rgba(33, 33, 33, 0.05);
+  }
+
+  .shadow-ink-xl {
+    box-shadow: 0 20px 25px -5px rgba(33, 33, 33, 0.1),
+      0 10px 10px -5px rgba(33, 33, 33, 0.04);
+  }
+}
+
+/* 和紙風のボーダー */
+@layer utilities {
+  .border-washi {
+    border-style: solid;
+    border-image: linear-gradient(
+        to right,
+        rgba(66, 66, 66, 0.3),
+        rgba(66, 66, 66, 0.8),
+        rgba(66, 66, 66, 0.3)
+      )
+      1;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    @apply text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-3xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-4xl;
+  }
+}
